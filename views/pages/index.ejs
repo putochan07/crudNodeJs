@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+<br/>
+	<div class="">
+		<div class="col s12">
+		<a href="/event/add" class="btn btn-success btn-lg">Insert Data</a>
+		</div>
+	</div>
+	
+<br/>
+	<div class="=">
+		<% if(items.length > 0) { %>
+			<table class="table">
+				<thread>
+					<tr>
+						<th style="width:1%;text-align:center">ID</th>
+						<th style="width:49%">Name</th>
+						<th style="width:28%">Home Address</th>
+						<th style="width:10%">Email Address</th>
+						<th solspan="2" style="width:10%;text-align:center">Actions</th>
+					</tr>
+				</thread>
+				<tbody>
+					<% items.forEach(function(items,index){ %>
+					<tr>
+					<td style="width:1% text-align:center"><%= items.id%></td>
+					<td style="width:49%"><%= items.name%></td>
+					<td style="width:20%"><%= items.homeadd%></td>
+					<td style="width:10%"><%= items.emailadd%></td>
+					<td solspan="2" style="width:20%;text-align:center">
+						<a href="/event/edit/<%= items.id%>" class="btn btn-warning">Edit</a>
+						<a href="/event/delete/<%= items.id%>" class="btn btn-danger">Delete</a>
+					</td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p><strong>There are no records available!</strong></p>
+		<% } %>
+	</div>
+	</div>
+						
+					
+<% include ../partials/footer %>
